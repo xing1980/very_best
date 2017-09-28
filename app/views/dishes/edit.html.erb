@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @dish.errors.any? %>
+  <% @dish.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Dish #<%= @dish.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_dish/<%= @dish.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for the_very_best -->
+      <div class="form-group">
+        <label for="the_very_best" class="control-label">
+          The very best
+        </label>
+
+        <input type="text" id="the_very_best" name="the_very_best" placeholder="The very best" class="form-control" value="<%= @dish.the_very_best %>">
+      </div>
+
+      <!-- Label and input for cusine -->
+      <div class="form-group">
+        <label for="cusine" class="control-label">
+          Cusine
+        </label>
+
+        <input type="text" id="cusine" name="cusine" placeholder="Cusine" class="form-control" value="<%= @dish.cusine %>">
+      </div>
+
+      <!-- Label and input for is_at -->
+      <div class="form-group">
+        <label for="is_at" class="control-label">
+          Is at
+        </label>
+
+        <input type="text" id="is_at" name="is_at" placeholder="Is at" class="form-control" value="<%= @dish.is_at %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Dish
+      </button>
+      or
+      <a href="/dishes/<%= @dish.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
