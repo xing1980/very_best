@@ -5,17 +5,44 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
+      <dt>Dishes</dt>
+      <dd>
+        <% if @bookmark.dishes.present? %>
+          <a href="/dishes/<%= @bookmark.dishes_id %>">
+            <%= @bookmark.dishes.name %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>Venues</dt>
+      <dd>
+        <% if @bookmark.venues.present? %>
+          <a href="/venues/<%= @bookmark.venues_id %>">
+            <%= @bookmark.venues.name %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>User</dt>
+      <dd>
+        <% if @bookmark.user.present? %>
+          <a href="/users/<%= @bookmark.user_id %>">
+            <%= @bookmark.user.name %>
+          </a>
+        <% end %>
+      </dd>
+
+      <dt>Email</dt>
+      <dd><%= @bookmark.email %></dd>
+
+      <dt>Password</dt>
+      <dd><%= @bookmark.password %></dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/bookmarks" class="btn btn-primary">
         Back
-      </a>
-      <a href="/bookmarks/<%= @bookmark.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_bookmark/<%= @bookmark.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
       </a>
     </div>
   </div>
