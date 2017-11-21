@@ -1,6 +1,6 @@
 ActiveAdmin.register Dish do
 
- permit_params :the_very_best, :cusine, :is_at
+ permit_params :name, :cuisine_id, :email
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
